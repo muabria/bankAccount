@@ -26,10 +26,13 @@ export default function Transactions() {
   switch (action) {
     case "deposit":
    dispatch(deposit({ amount }));
+   break;
    case "withdrawal":
    dispatch(withdrawal({ amount }));
+   break;
    case "transfer":
    dispatch(transfer({ amount, recipient }));
+   break;
    default:
  }
  setAmountStr("0.00");
