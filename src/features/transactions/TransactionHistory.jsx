@@ -14,6 +14,7 @@ const TransactionRow = ({ transaction: { type, amount, balance } }) => (
 export default function TransactionHistory() {
   // TODO: Get the transaction history from the Redux store using the useSelector hook
   const history = useSelector(state=>state.transactions.history);
+  console.log(history)
 
   return (
     <section className="transactions-history container">

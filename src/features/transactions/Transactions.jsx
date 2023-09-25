@@ -6,10 +6,10 @@ import { deposit, withdrawal, transfer } from "./transactionsSlice"
 /**
  * Allows users to deposit to, withdraw from, and transfer money from their account.
  */
-export default function Transactions() {
+export default function transactions() {
   // TODO: Get the balance from the Redux store using the useSelector hook
-  const balance = useSelector(state=>state.Transactions.balance);
-  const Dispatch = useDispatch();
+  const balance = useSelector(state=>state.transactions.balance);
+  const dispatch = useDispatch();
   const [amountStr, setAmountStr] = useState("0.00");
 
   /** Dispatches a transaction action based on the form submission. */
@@ -23,11 +23,17 @@ export default function Transactions() {
     const amount = +amountStr;
 
     // TODO: Dispatch the appropriate transaction action based on `action`
-    
-   Dispatch(deposit({ amount }));
-   Dispatch(withdrawl({ amount }));
-   Dispatch(transfer({ amount, recipient }));
-
+  switch (action) {
+    case "desposit":
+   dispatch(deposit({ amount }));
+   case "withdrawal":
+   dispatch(withdrawal({ amount }));
+   case "transfer":
+   dispatch(transfer({ amount, recipient }));
+   default:
+ }
+ setAmountStr("0.00");
+ 
   };
 
   return (
@@ -54,7 +60,7 @@ export default function Transactions() {
             <button default name="deposit">
               Deposit
             </button>
-            <button name="withdraw">Withdraw</button>
+            <button name="withdrawal">Withdrawal</button>
           </div>
         </div>
         <div className="form-row">
