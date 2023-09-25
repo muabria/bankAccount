@@ -6,7 +6,7 @@ import { deposit, withdrawal, transfer } from "./transactionsSlice"
 /**
  * Allows users to deposit to, withdraw from, and transfer money from their account.
  */
-export default function transactions() {
+export default function Transactions() {
   // TODO: Get the balance from the Redux store using the useSelector hook
   const balance = useSelector(state=>state.transactions.balance);
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ export default function transactions() {
 
     // TODO: Dispatch the appropriate transaction action based on `action`
   switch (action) {
-    case "desposit":
+    case "deposit":
    dispatch(deposit({ amount }));
    case "withdrawal":
    dispatch(withdrawal({ amount }));
@@ -57,7 +57,7 @@ export default function transactions() {
             />
           </label>
           <div>
-            <button default name="deposit">
+            <button name="deposit">
               Deposit
             </button>
             <button name="withdrawal">Withdrawal</button>
